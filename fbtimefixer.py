@@ -10,7 +10,6 @@ m = []
 df = pd.DataFrame()
 
 for i in data['messages']:
-    #print(i['timestamp_ms'])
     d.append(i['timestamp_ms'])
 
 for i in data['messages']:
@@ -19,7 +18,8 @@ for i in data['messages']:
 
 df['time'] = d
 df['message'] = m
+
 df['time'] = pd.to_datetime(df['time'],unit='ms')
-tme = timedelta(days=3)
-df['time'] = df['time'] - tme
+time2 = timedelta(days=3)
+df['time'] = df['time'] - time2
 df.to_csv('messages.csv',index=False)
